@@ -1,0 +1,48 @@
+{
+    "name": "@anireact/rollup-plugin-redirectory",
+    "version": "1.0.0",
+    "description": "OverlayFS-like resolver for Rollup.",
+    "main": "index.js",
+    "repository": "https://github.com/anireact/rollup-plugin-redirectory",
+    "author": "Yuri Zemskov <miyaokamarina@gmail.com> (https://twitter.com/miyaokamarina)",
+    "license": "MIT",
+    "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "resolve",
+        "overlay",
+        "overlayfs",
+        "mergefs"
+    ],
+    "packageManager": "yarn@3.6.4",
+    "scripts": {
+        "make": "tsc --build",
+        "watch": "tsc --build --watch --preserveWatchOutput",
+        "clean": "rm -rf ./out/ ./tmp/",
+        "remake": "yarn clean && yarn make",
+        "test": "yarn make && node ./tmp/test.mjs",
+        "prepack": "yarn clean && yarn test"
+    },
+    "exports": {
+        ".": {
+            "types": "./out/index.d.mts",
+            "import": "./out/index.mjs"
+        }
+    },
+    "peerDependencies": {
+        "rollup": "^4.0.2"
+    },
+    "peerDependenciesMeta": {
+        "rollup": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@anireact/typescript-config": "^1.0.0",
+        "@types/node": "^20.8.4",
+        "prettier": "^3.0.3",
+        "rollup": "^4.0.2",
+        "typescript": "^5.2.2"
+    }
+}
